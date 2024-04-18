@@ -4,13 +4,17 @@
 
 We will have 5 different rooms where the objective is to make your way to the exit by utilizing the contents within each of the five rooms, We made sure that each sub room would be used at least one point to serve a purpose for completion.
 
+
+
+
+Rooms
+-----
+
 CodeRoom    Exit
    |         |    
    |--------Hub----Generator
    |
 KeyRoom
-
-
 
 enum RoomType {
     Hub,
@@ -22,14 +26,106 @@ enum RoomType {
 
 
 
-## Ojbects
 
-class Game {
-    private Room[] rooms = new Room[5];
+What are the rooms, what do they, what's in them
+- Hub: ...
+- Key room ...
+- Code room ...
+- Generator room ...
+- Exit room ...
 
-    // Initialize everything here, tell story here
+```
+class Room{
+    protected RoomType roomType {get; set;}
+    Room(){
+        roomType = RoomType.Hub; // Default        
+    }
 
 }
+
+class Hub : Room{
+
+    private RoomType[] exits; // Rooms connectd to my current 
+
+
+    Hub(){
+
+        exits = new RoomType[]{RoomType.KeyRoom, RoomType.CodeRoom, RoomType.GeneratorRoom, RoomType.ExitRoom}; // Hub connects to all rooms
+    }
+}
+
+class KeyRoom : Room{
+
+    private bool hasKey; 
+
+    KeyRoom()
+    { 
+        roomType = RoomType.KeyRoom;
+        hasKey = true;
+    }    
+}
+
+class CodeRoom : Room{
+
+    private int code {get; set;}
+
+    CodeRoom(int genCode)
+    {
+        roomType = RoomType.CodeRoom;
+        code = genCode;
+    }
+
+}
+
+class GenertorRoom : Room{
+
+    private bool genOn {get; set;}
+    int codeNeeded;
+
+    GeneratorRoom(genCode)
+    {
+        roomType = RoomType.GeneratorRoom;
+        codeNeeded = genCode;
+        genOn = true;
+    }
+
+    bool inputCode(int code){
+        if(code == codeNeeded){
+            genOn =false;
+            Console.WriteLine("You turned off the generator");
+            return true;
+        }else{
+            Console.WriteLine("Wrong code");
+            return false;
+        }
+    }
+
+}
+
+class ExitRoom : Room {
+
+    privat bool barrierOn {get; set;}
+
+    ExitRoom()
+    {
+        roomType = RoomType.ExitRoom;
+        barrierOn = true;
+    }
+    bool Exit(){
+        if(barrierOn){
+            Console.WriteLine("The electric barrier is on, you shall not pass");
+            return false;
+        }else{
+            Console.WriteLine("You successfully exited the dungeon");
+            return true;
+        }
+    }
+
+}
+
+## Ojbects
+
+
 
 
 
@@ -51,6 +147,7 @@ class Protagonist{
         GeneratorRoom,
         ExitRoom
     }
+
 
     // Methods
     public Protagonist(){ // Constructor
@@ -131,25 +228,9 @@ class Flashlight: Item {
 
 }
 
-Rooms
------
-What are the rooms, what do they, what's in them
-- Hub: ...
-- Key room ...
-- Code room ...
-- Generator room ...
-- Exit room ...
+class Game {
+    private Room[] rooms = new Room[5];
 
-```
-class Room{
-    protected RoomType roomType {get; set;}
-    protected List<RoomType> exits;
-}
+    // Initialize everything here, tell story here
 
-class Hub: Room{
-
-}
-
-class KeyRoom : Room{
-    
 }
