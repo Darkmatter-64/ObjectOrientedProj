@@ -1,0 +1,15 @@
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\bin\Debug\net8.0\OOP_Final_Proj.exe
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\bin\Debug\net8.0\OOP_Final_Proj.deps.json
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\bin\Debug\net8.0\OOP_Final_Proj.runtimeconfig.json
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\bin\Debug\net8.0\OOP_Final_Proj.dll
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\bin\Debug\net8.0\OOP_Final_Proj.pdb
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.AssemblyInfoInputs.cache
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.AssemblyInfo.cs
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.csproj.CoreCompileInputs.cache
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.sourcelink.json
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.dll
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\refint\OOP_Final_Proj.dll
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.pdb
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\OOP_Final_Proj.genruntimeconfig.cache
+C:\Users\Darkmatter\Documents\C# Course\C#Git\ObjectOrientedProj\OOP_Final_Proj\obj\Debug\net8.0\ref\OOP_Final_Proj.dll
