@@ -154,8 +154,8 @@ class Flashlight : Item
 class Protagonist
 {
     // Fields
-    private List<Item> inventory;
-    private Room currentRoom;
+    public List<Item> inventory;
+    public Room currentRoom;
 
 
 
@@ -183,10 +183,26 @@ class Protagonist
         Console.WriteLine(currentRoom);
     }
 
+    public string getCurrentRoom()
+    {
+        return currentRoom.ToString();
+    }
+
 
     public void addToInventory(string itemName)
     { // Pick up
         inventory.Add(new Item(itemName));
+    }
+
+    public List<string> getItemNames()
+    {
+        List<string> list = new List<string>(); 
+        foreach (Item item in inventory)
+        {
+            list.Add(item.itemName);
+        }
+        return list;
+
     }
 
 
@@ -195,8 +211,31 @@ class Protagonist
 class Game
 {
     public Room[] rooms = new Room[5];
-    public bool codeRoomOpen = false;
+    //public bool codeRoomOpen = false;
+    //public bool generatorRoomOpen = false;
+    public bool genOn = true;
     public bool win = false;
+
+    /*
+    static void roomAction(Protagonist user)
+    {
+        int room = (int) user.currentRoom.getRoomType();
+
+        if(room == 1)
+        {
+            return user;
+        } else if (room == 2)
+        {
+            
+        } else if(room == 3)
+        {
+
+        } else if (room == 4)
+        {
+
+        }
+
+    }*/
 
     static void Main(string[] args)
     {
@@ -214,14 +253,104 @@ class Game
 
         Protagonist user = new Protagonist(game.rooms[0]);
 
-        Console.WriteLine("You find yourself in an empty room");
+        Console.WriteLine("You find yourself in an empty room - there's a sign that says 'Hub'.");
         user.checkInventory();
         user.printCurrentRoom();
 
         while (!game.win)
         {
-            // I'm currently in .... room
-            // Do you want to go to another room...
+            Console.WriteLine("Would you like to 1-Open the inventory, or 2-Move to another room. Choose option [1,2]");
+            int action = 0;
+            while(action < 1 || action > 2)
+            {
+                action = Convert.ToInt32(Console.ReadLine());
+            }
+            if (action == 1)
+            {
+                user.checkInventory();
+            }
+            else // Movement
+            {
+                if (user.getCurrentRoom() == "Hub")
+                {
+                    Console.WriteLine("Where should I go?");
+                    for (int r = 1; r < 5; r++)
+                    {
+                        Console.Write(r);
+                        Console.WriteLine(" " + game.rooms[r].ToString());
+                    }
+                    int roomOption = 0;
+                    Console.WriteLine("Select a room [1,2,3,4]");
+                    while (roomOption < 1 || roomOption > 4)
+                    {
+                        roomOption = Convert.ToInt32(Console.ReadLine());
+                    }
+
+                    // Move to Appropriate Room
+                    if (roomOption == 1)
+                    {
+                        user.currentRoom = game.rooms[1];
+                        Console.WriteLine("You look around, and you find the key");
+                        user.inventory.Add(new Item("key"));
+                    }
+                    else if (roomOption == 2)
+                    {
+                        if (user.getItemNames().Contains("key"))
+                        {
+                            Console.WriteLine("Your key opened the door to the code room.");
+                            user.currentRoom = game.rooms[2];
+                            Console.Write("The room is dark, you turned on your flashlight. You see a code written in a notebook. It is ");
+                            Console.Write(code);
+                            Console.WriteLine(". You write it down");
+                            user.inventory.Add(new Item("code"));
+                        }
+                        else
+                        {
+                            Console.WriteLine("The door is locked, it looks like you need a key");
+                        }
+
+                    }
+                    else if (roomOption == 3)
+                    {
+                        if (user.getItemNames().Contains("code"))
+                        {
+                            Console.Write("You entered code ");
+                            Console.Write(code);    
+                            Console.WriteLine(". The code opened the door to the generator room.");
+                            user.currentRoom = game.rooms[3];
+                            Console.WriteLine("The generator is on, and we flip the switch.");
+                            game.genOn = false;
+                        }
+                        else
+                        {
+                            Console.WriteLine("The door is locked, it looks like you need a code");
+                        }
+                    }
+                    else if (roomOption == 4)
+                    {
+                        if (!game.genOn)
+                        {
+                            Console.WriteLine("The electric field is down, you can leave.");
+                            Console.WriteLine("You win! :)");
+                            user.currentRoom = game.rooms[4];
+                            game.win = true;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("The door is electrified, you can't leave.");
+                    
+                        }
+                    }
+
+
+                }
+                else
+                {
+                    user.currentRoom = game.rooms[0];
+                    Console.WriteLine("You are back in the Hub");
+                }
+            }
             
         }
 
